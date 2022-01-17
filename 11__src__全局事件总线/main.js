@@ -1,0 +1,15 @@
+// 引入vue
+import Vue from 'vue'
+// 引入app组件
+import App from './App.vue'
+
+
+Vue.config.productionTip = false
+
+
+new Vue({
+  render: h => h(App),
+  beforeCreate(){
+    Vue.prototype.$bus= this //安装全局事件总线，$bus就是当前应用的vm
+  }
+}).$mount('#app')
