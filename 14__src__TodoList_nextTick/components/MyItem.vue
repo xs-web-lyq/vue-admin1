@@ -11,6 +11,7 @@
         v-show="item.isEdit"
         :value ="item.name"
         @blur="handleBlur(item,$event)"
+        ref="inputName"
       >
     </label>
     <button class="btn btn-danger"  @click="deleteItem(item.id)">删除</button>
@@ -38,6 +39,9 @@ export default {
       }else{
         this.$set(item,'isEdit',true)
       }
+      this.$nextTick(function(){
+        this.$refs.inputName.focus()
+      })
       
     },
     handleBlur(item,e){
